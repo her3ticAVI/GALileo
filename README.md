@@ -7,14 +7,13 @@ credential - no Domain Controller access required.
 
 On internal engagements the Domain Controllers are increasingly locked down:
 identity-protection EDR/ITDR, authentication policies, Protected Users, or logon
-restrictions — so the usual LDAP/SAMR user enumeration against a DC gets blocked.
+restrictions - so the usual LDAP/SAMR user enumeration against a DC gets blocked.
 Exchange, however, is a member server: it validates your credential and will hand
 back the Global Address List on your behalf, so a standard mailbox account can pull
 the entire directory without ever authenticating to a DC.
 
 GALileo automates that pivot: point it at a host or a subnet, give it a credential,
-and it returns a clean username/email list ready for password spraying or phishing
-simulation.
+and it returns a clean username/email list.
 
 ## Features
 
@@ -30,10 +29,8 @@ simulation.
 ## Install
 
 ```bash
-pip install requests requests_ntlm
+pip install -r requirements.txt
 ```
-
-(`requests_ntlm` is optional — without it the tool falls back to Basic auth.)
 
 ## Usage
 
